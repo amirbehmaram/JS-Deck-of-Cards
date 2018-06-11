@@ -1,13 +1,16 @@
 var Deck = (function() {
 
    // Variables
-   this.cardValues = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'A', 'J', 'Q', 'K'];
+   var cardValues = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'A', 'J', 'Q', 'K'];
    var cards = [];
 
    return {
 
       // Create deck
       create: function() {
+        // Reset the deck to prevent the addition of more cards
+        cards = [];
+
          // Loop through each possible card value and add four of them to the card deck
          cardValues.forEach(function(item) {
             for(var i = 0; i < 4; i++) {
@@ -55,7 +58,7 @@ var Deck = (function() {
          return topCard;
       },
 
-      // Deal a random card frmo the deck
+      // Deal a random card from the deck
       dealRandom: function() {
          // Generate a random index, then splice that item out after getting the value
          var randomIndex = Math.floor(Math.random() * cards.length);
